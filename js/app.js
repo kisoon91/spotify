@@ -1,13 +1,12 @@
 var data;
-var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
+var baseUrl = 'https://api.spotify.com/v1/search?type=album&query='
 var myApp = angular.module('myApp', [])
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   $scope.audioObject = {}
   $scope.getSongs = function() {
-    $http.get(baseUrl + $scope.track).success(function(response){
-      data = $scope.tracks = response.tracks.items
-      
+    $http.get(baseUrl + $scope.album).success(function(response){
+      data = $scope.albums = response.albums.items
     })
   }
   $scope.play = function(song) {
@@ -23,9 +22,8 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       $scope.currentSong = song
     }
   }
+
+
 })
 
 // Add tool tips to anything with a title property
-$('body').tooltip({
-    selector: '[title]'
-});
