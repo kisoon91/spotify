@@ -1,34 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300);
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
 
-h1 {
-	font-family: 'Lato', 'Helvetica Neue', 'Helvetica', serif;
-	text-align: center;
+
+button {
+  	margin-bottom: 20px;	
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 15pt;
 }
+body {
 
-body{
-	background-color: 
-	padding: 1em;
-	font-size: 20px;
-	font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', serif;
-
+    padding: 20px;
 }
-
-p{
-	background-color: lightgray;
+#search-form, .form-control {
+    margin-bottom: 20px;
 }
-
-#container{
-	padding-left: 50%;
-	margin-left: 5%;
+.cover {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
 }
-
-a:link, a:visited{
-	color: #0000AA;
-	text-decoration: none !important;
+.cover:hover {
+    cursor: pointer;
 }
-
-a:hover, input:focus {
-	color: #0000EE;
-	text-decoration: none !important;
+.cover.playing {
+    border: 5px solid #e45343;
 }

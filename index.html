@@ -8,7 +8,7 @@
 <script src="js/app.js"></script>
 <link href="app.css" type="text/css" />
   <meta charset="utf-8">
-  <title>JS Bin</title>
+  <title>Spotify Search Machine</title>
 </head>
 <body>
   <div ng-app="myApp" ng-controller="myCtrl">
@@ -22,15 +22,27 @@
       <button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
     </div>
   </form>
-  <div>
       <div class="container-fixed">
-        <p ng-show="albums.length>0" class="help-block">Click to see tracks</p>
-        <div ng-class="album.preview_url == currentSong ? 'playing' : ''"  ng-repeat="album in albums" class="col-xs-4 img"><img ng-click="play(album.preview_url)" title="{{album.name}}" src="{{album.images[1].url}}"></img>
-        <p>Album: {{album.name}}</p>
-        </div>
+        <p ng-show="albums.length==0" class="help-block">No result</p>
+        <p ng-show="albums.length>0" class="help-block">Pick an album to get tracks</p>
+        <div ng-repeat="album in albums" class="col-xs-4 img"> 
+          <div ng-click= "getTracks(album); result()" title="{{album.name}}">
+            <img class = "cover" src="{{album.images[1].url}}"></img>
+            <p>Album: {{album.name}}</p>
+          </div>
+        </div> 
+      </div>
+      <div class="container-fixed" ng-show="select">'
+        <div class="col-md-12">
+          <h1>{{selectedAlbum.name}} by {{tracks[0].artists[0].name}}</h1>        
+            <div ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" class="col-xs-3">
+              <div ng-class ="tracks[i].preview_url == currentSong ? 'playing' : ''" ng-click="play(tracks[i].preview_url)" title="{{album.name}}">
+              <img class = "cover" src="{{selectedAlbum.images[1].url}}"></img>
+              <p>Track#: {{tracks[i].track_number}}</p>      
+              <p>Name: {{tracks[i].name}}</p></br>
+              </div>
+          </div>
     </div>
-    </div>
-  </div>
   </div>
 </body>
 </html>
